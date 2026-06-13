@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Builder AI</title>
+  <link rel="stylesheet" href="/style.css"/>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div id="topbar">
+    <div class="logo">Builder <span>AI</span></div>
+    <div class="actions">
+      <button id="clearBtn">Clear Canvas</button>
+      <button id="generateBtn">
+        <div class="spinner" id="spinner"></div>
+        <span id="generateLabel">⚡ Generate Code</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- WORKSPACE -->
+  <div id="workspace">
+
+    <!-- SIDEBAR -->
+    <div id="sidebar">
+      <h3>Components</h3>
+      <div class="component-item" draggable="true" data-type="navbar">
+        <span class="icon">🔲</span> Navbar
+      </div>
+      <div class="component-item" draggable="true" data-type="heading">
+        <span class="icon">T</span> Heading
+      </div>
+      <div class="component-item" draggable="true" data-type="button">
+        <span class="icon">⬜</span> Button
+      </div>
+      <div class="component-item" draggable="true" data-type="input">
+        <span class="icon">✏️</span> Input
+      </div>
+      <div class="component-item" draggable="true" data-type="card">
+        <span class="icon">🃏</span> Card
+      </div>
+      <div class="component-item" draggable="true" data-type="image">
+        <span class="icon">🖼️</span> Image
+      </div>
+    </div>
+
+    <!-- CANVAS -->
+    <div id="canvas-wrap">
+      <div id="canvas">
+        <div id="canvas-empty">
+          <div class="big-icon">🎨</div>
+          <p>Drag components onto the canvas</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div id="panel">
+      <h3>Properties</h3>
+      <div id="panel-content">
+        <div id="panel-empty">Select an element to edit its properties.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CODE MODAL -->
+  <div id="modal-overlay">
+    <div id="modal">
+      <div id="modal-header">
+        <h2>Generated Code</h2>
+        <div class="modal-actions">
+          <button id="copyBtn">Copy Code</button>
+          <button id="closeModal">✕ Close</button>
+        </div>
+      </div>
+      <div id="code-output">
+        <pre id="code-pre"></pre>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast">Copied to clipboard!</div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
