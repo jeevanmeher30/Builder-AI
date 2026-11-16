@@ -3,6 +3,7 @@ from pydantic import BaseModel
 import httpx
 import json
 from config import GEMINI_API_KEY, GEMINI_MODEL
+import time 
 
 router = APIRouter()
 
@@ -71,10 +72,16 @@ async def generate_code(payload: DesignPayload):
     }
 
     try:
+        start = time.pref_counter()
         async with httpx.AsyncClient(timeout=60) as client:
             resp = await client.post(url, json=body)
-            resp.raise_for_status()
-            data = resp.json()
+        print(
+            "Gemini API time:",
+            round(time.perf_counter() - start, 2), 
+            "seconds"
+        )
+        resp.raise_for_status()
+        data = resp.json()
     except httpx.HTTPStatusError as e:
         raise HTTPException(status_code=502, detail=f"Gemini API error: {e.response.text}")
     except Exception as e:
