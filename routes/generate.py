@@ -72,7 +72,7 @@ async def generate_code(payload: DesignPayload):
     }
 
     try:
-        start = time.pref_counter()
+        start = time.perf_counter()
         async with httpx.AsyncClient(timeout=60) as client:
             resp = await client.post(url, json=body)
         print(
